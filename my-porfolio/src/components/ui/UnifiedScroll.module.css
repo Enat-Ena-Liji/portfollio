@@ -1,0 +1,356 @@
+/* Light Mode Only - Attractive Scroll UI */
+
+/* Light theme variables */
+:root {
+  --scroll-primary: #007acc;
+  --scroll-primary-light: #0099ff;
+  --scroll-primary-gradient: linear-gradient(135deg, #007acc 0%, #0099ff 100%);
+  --scroll-primary-glow: rgba(0, 122, 204, 0.4);
+  --scroll-bg-card: rgba(255, 255, 255, 0.95);
+  --scroll-bg-card-hover: rgba(0, 122, 204, 0.1);
+  --scroll-text-primary: #1e293b;
+  --scroll-text-secondary: #475569;
+  --scroll-border-color: rgba(0, 122, 204, 0.3);
+  --scroll-border-hover: #007acc;
+}
+
+/* Unified Scroll Progress Bar */
+.scrollProgressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: rgba(0, 122, 204, 0.15);
+  z-index: 10000;
+  transform-origin: 0%;
+  backdrop-filter: blur(10px);
+}
+
+.scrollProgressFill {
+  height: 100%;
+  background: var(--scroll-primary-gradient);
+  transform-origin: 0%;
+  box-shadow: 0 0 15px var(--scroll-primary-glow);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Dynamic Heading */
+.dynamicHeading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dynamicHeading.visible {
+  opacity: 1;
+}
+
+.dynamicHeading h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: var(--scroll-primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 122, 204, 0.2);
+}
+
+/* Scroll Sections Indicator */
+.sectionsIndicator {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 999;
+  pointer-events: auto;
+}
+
+.sectionDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(0, 122, 204, 0.25);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  backdrop-filter: blur(5px);
+}
+
+.sectionDot:hover {
+  background: var(--scroll-primary);
+  transform: scale(1.4);
+  box-shadow: 0 0 20px var(--scroll-primary-glow);
+}
+
+.sectionDot.active {
+  background: var(--scroll-primary);
+  box-shadow: 0 0 20px var(--scroll-primary-glow);
+  transform: scale(1.2);
+}
+
+.sectionDot.active::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 2px solid var(--scroll-primary);
+  border-radius: 50%;
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+.sectionLabel {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--scroll-bg-card);
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  color: var(--scroll-text-primary);
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--scroll-border-color);
+}
+
+.sectionDot:hover .sectionLabel {
+  opacity: 1;
+}
+
+/* Scroll Navigation Buttons */
+.scrollNav {
+  position: fixed;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.scrollNavBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--scroll-bg-card);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--scroll-border-color);
+  border-radius: 30px;
+  color: var(--scroll-text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.scrollNavBtn:hover {
+  background: var(--scroll-primary);
+  color: white;
+  border-color: var(--scroll-primary);
+  transform: translateX(-8px) scale(1.05);
+  box-shadow: 0 10px 30px var(--scroll-primary-glow);
+}
+
+.scrollNavBtn svg {
+  font-size: 1.1rem;
+}
+
+.scrollNavUp {
+  bottom: 7rem;
+}
+
+.scrollNavDown {
+  bottom: 2rem;
+}
+
+/* Page Progress Indicator */
+.pageProgress {
+  position: fixed;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  z-index: 999;
+  color: var(--scroll-primary);
+}
+
+.currentPageNum {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--scroll-primary);
+  text-shadow: 0 2px 8px rgba(0, 122, 204, 0.3);
+}
+
+.totalPages {
+  font-size: 1rem;
+  color: var(--scroll-text-secondary);
+  font-weight: 500;
+}
+
+/* Scroll Hint */
+.scrollHint {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--scroll-bg-card);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--scroll-border-color);
+  border-radius: 30px;
+  color: var(--scroll-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  z-index: 999;
+  animation: pulse 2s infinite;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.scrollHint svg {
+  font-size: 1.1rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.9; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/* Scroll to Top Button */
+.scrollTopBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: var(--scroll-primary-gradient);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  z-index: 999;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(0, 122, 204, 0.3);
+}
+
+.scrollTopBtn:hover {
+  transform: translateY(-5px) scale(1.15);
+  box-shadow: 0 12px 30px var(--scroll-primary-glow);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sectionsIndicator {
+    right: 1rem;
+  }
+  
+  .pageProgress {
+    display: none;
+  }
+  
+  .scrollHint {
+    bottom: 1rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .dynamicHeading h2 {
+    font-size: 2.5rem;
+  }
+  
+  .scrollNavUp {
+    bottom: 6rem;
+  }
+  
+  .scrollNavDown {
+    bottom: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .scrollNavBtn span:last-child {
+    display: none;
+  }
+  
+  .scrollNavBtn {
+    padding: 0.75rem;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    justify-content: center;
+  }
+  
+  .scrollNavBtn svg {
+    font-size: 1.3rem;
+  }
+  
+  .scrollHint {
+    width: 90%;
+    justify-content: center;
+  }
+  
+  .scrollTopBtn {
+    width: 50px;
+    height: 50px;
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .dynamicHeading h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scrollNavBtn,
+  .scrollHint,
+  .scrollTopBtn {
+    animation: none !important;
+    transition: none !important;
+  }
+}
