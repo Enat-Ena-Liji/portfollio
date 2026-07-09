@@ -9,6 +9,7 @@ const useScrollNavigation = () => {
   const lastScrollPositionRef = useRef(0);
   const animationFrameRef = useRef(null);
   const isThrottledRef = useRef(false);
+  const lastNavigationTimeRef = useRef(0);
 
   const routes = [
     { path: '/', label: 'Home' },
@@ -23,36 +24,48 @@ const useScrollNavigation = () => {
   }, [location.pathname]);
 
   const navigateToPage = useCallback((direction) => {
-    if (isNavigatingRef.current) return;
+    const now = Date.now();
+    const timeSinceLastNav = now - lastNavigationTimeRef.current;
+    
+    // Prevent rapid navigations (300ms cooldown)
+    if (isNavigatingRef.current || timeSinceLastNav < 300) return;
 
     const currentIndex = getCurrentIndex();
     
     if (direction === 'down' && currentIndex < routes.length - 1) {
       isNavigatingRef.current = true;
+      lastNavigationTimeRef.current = now;
       const nextPath = routes[currentIndex + 1].path;
       navigate(nextPath);
       
-      // Reset navigation lock after transition
+      // Scroll to top of next page
       setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         isNavigatingRef.current = false;
-      }, 800);
+      }, 100);
     }
     
     if (direction === 'up' && currentIndex > 0) {
       isNavigatingRef.current = true;
+      lastNavigationTimeRef.current = now;
       const prevPath = routes[currentIndex - 1].path;
       navigate(prevPath);
       
+      // Scroll to BOTTOM of previous page (this is the fix!)
       setTimeout(() => {
+        window.scrollTo({ 
+          top: document.documentElement.scrollHeight, 
+          behavior: 'smooth' 
+        });
         isNavigatingRef.current = false;
-      }, 800);
+      }, 100);
     }
-  }, [navigate, getCurrentIndex, routes]);
+  }, [navigate, getCurrentIndex, routes.length]);
 
   useEffect(() => {
     let scrollDirection = 'idle';
     let scrollAccumulator = 0;
-    const SCROLL_THRESHOLD = 150; // Minimum scroll distance to trigger navigation
+    const SCROLL_THRESHOLD = 100; // Minimum scroll distance to trigger navigation
     const NAVIGATION_COOLDOWN = 1000; // Cooldown between navigations
 
     const handleScroll = () => {
@@ -106,10 +119,6 @@ const useScrollNavigation = () => {
           if (scrollAccumulator > SCROLL_THRESHOLD) {
             navigateToPage('down');
             scrollAccumulator = 0;
-            // Reset scroll position to top of next page
-            setTimeout(() => {
-              window.scrollTo({ top: 0, behavior: 'instant' });
-            }, 50);
           }
         }
         
@@ -118,10 +127,6 @@ const useScrollNavigation = () => {
           if (scrollAccumulator < -SCROLL_THRESHOLD) {
             navigateToPage('up');
             scrollAccumulator = 0;
-            // Reset scroll position to top of previous page (it will be at bottom)
-            setTimeout(() => {
-              window.scrollTo({ top: 0, behavior: 'instant' });
-            }, 50);
           }
         }
 
@@ -133,11 +138,6 @@ const useScrollNavigation = () => {
     const handleRouteChange = () => {
       isNavigatingRef.current = false;
       scrollAccumulator = 0;
-      // When navigating up, scroll to bottom of page
-      // When navigating down, scroll to top of page
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'instant' });
-      }, 100);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });

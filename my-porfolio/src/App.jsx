@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
-import ScrollProgress from './components/ui/ScrollProgress';
-import useScrollNavigation from './hooks/useScrollNavigation';
+import UnifiedScroll from './components/ui/UnifiedScroll';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
@@ -26,7 +25,6 @@ const ScrollToTop = () => {
 
 const AnimatedRoutes = () => {
   const location = useLocation();
-  useScrollNavigation();
 
   const pageVariants = {
     initial: { opacity: 0, y: 20 },
@@ -42,7 +40,6 @@ const AnimatedRoutes = () => {
 
   return (
     <>
-      <ScrollProgress />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route 
@@ -131,6 +128,7 @@ function App() {
           <AnimatedRoutes />
         </main>
         <Footer />
+        <UnifiedScroll />
       </div>
     </Router>
   );
