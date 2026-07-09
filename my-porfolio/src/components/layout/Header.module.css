@@ -555,6 +555,31 @@
   color: var(--primary);
 }
 
+/* Light mode specific styles */
+[data-theme="light"] .scrolled {
+  background: rgba(253, 246, 227, 0.95);
+}
+
+[data-theme="light"] .active {
+  background: rgba(141, 110, 99, 0.15);
+}
+
+[data-theme="light"] .resumeDropdown {
+  background: rgba(253, 246, 227, 0.98);
+}
+
+[data-theme="light"] .mobileMenu {
+  background: rgba(253, 246, 227, 0.98);
+}
+
+[data-theme="light"] .scrollTopBtn:hover {
+  box-shadow: 0 8px 25px rgba(141, 110, 99, 0.3);
+}
+
+[data-theme="light"] .keyboardHint {
+  background: rgba(253, 246, 227, 0.8);
+}
+
 /* Responsive */
 @media (min-width: 1024px) {
   .desktopNav {

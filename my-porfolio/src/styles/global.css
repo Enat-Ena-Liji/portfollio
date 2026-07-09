@@ -240,6 +240,24 @@ body {
   outline: none;
 }
 
+/* Light mode specific styles */
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: var(--secondary);
+}
+
+[data-theme="light"] .highlight::after {
+  background: rgba(3, 2, 19, 0.2);
+}
+
+[data-theme="light"] .hero-badge {
+  background: var(--secondary);
+  border: 1px solid var(--border);
+}
+
+[data-theme="light"] .spinner-circle {
+  border: 4px solid var(--secondary);
+}
+
 /* Print styles */
 @media print {
   .no-print {
@@ -291,3 +309,4 @@ body {
     font-size: 0.9rem;
   }
 }
+
