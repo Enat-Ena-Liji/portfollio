@@ -255,7 +255,7 @@
 .noProjectsIcon {
   width: 80px;
   height: 80px;
-  background: rgba(100, 255, 218, 0.1);
+  /* background: rgba(100, 255, 218, 0.1); */
   border: 2px solid rgba(100, 255, 218, 0.2);
   border-radius: 50%;
   display: flex;
@@ -296,7 +296,7 @@
 
 /* List View */
 .projectListItem {
-  background: var(--bg-card);
+  /* background: var(--bg-card); */
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: var(--space-lg);
@@ -304,7 +304,7 @@
 }
 
 .projectListItem:hover {
-  background: var(--bg-card-hover);
+  /* background: var(--bg-card-hover); */
   border-color: var(--primary);
   transform: translateY(-2px);
 }
