@@ -28,7 +28,7 @@ const Projects = () => {
  // Mock projects data
   const mockProjects = useMemo(() => [
         {
-    id: 10,
+    id: 1,
     title: 'University Department Allocation System',
     type: 'fullstack',
     featured: true,
@@ -137,8 +137,9 @@ const Projects = () => {
 //       ],
 //       complexity: 'high'
 //  },
+
 {
-  "id": 10,
+  "id": 2,
   "title": "Global Banking & Transaction Settlement System",
   "type": "distributed-systems",
   "featured": true,
@@ -301,7 +302,7 @@ const Projects = () => {
   ]
 },
     {
-    id: 11,
+    id: 3,
     title: 'Evangadi Forum - Programming Q&A Platform',
     type: 'fullstack',
     featured: true,
@@ -372,7 +373,7 @@ The platform follows Stack Overflow-style conventions and provides an intuitive 
   },
   
      {
-    id: 12,
+    id: 4,
     title: 'Abe\'s Garage - Complete Garage Management System',
     type: 'fullstack',
     featured: true,
@@ -506,7 +507,7 @@ The platform follows Stack Overflow-style conventions and provides an intuitive 
     //   complexity: 'high'
     // },
     {
-  "id": 1,
+  "id": 5,
   "title": "AI Personal Agent - Full Stack SaaS Application",
   "type": "fullstack",
   "featured": true,
@@ -611,45 +612,45 @@ The system handles complex integrations with multiple external APIs and includes
   ],
   "complexity": "high"
 },
+    // {
+    //   id: 4,
+    //   title: 'Task Management System',
+    //   type: 'fullstack',
+    //   featured: false,
+    //   date: '2023-09-10',
+    //   duration: '1 month',
+    //   teamSize: 1,
+    //   status: 'completed',
+    //   progress: 100,
+    //   shortDescription: 'Collaborative task management system with drag-and-drop interface.',
+    //   fullDescription: 'A collaborative task management system with drag-and-drop functionality, team collaboration features, and real-time updates.',
+    //   technologies: ['React', 'Node.js', 'PostgreSQL', 'Express'],
+    //   features: [
+    //     'Drag-and-drop interface',
+    //     'Team collaboration',
+    //     'Real-time updates',
+    //     'File attachments',
+    //     'Progress tracking'
+    //   ],
+    //   images: ['https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&auto=format&fit=crop'],
+    //   stats: {
+    //     stars: 25,
+    //     forks: 6,
+    //     views: 720,
+    //     linesOfCode: 5000,
+    //     commits: 82,
+    //     branches: 3
+    //   },
+    //   challenges: [
+    //     {
+    //       title: 'Drag-and-drop performance',
+    //       solution: 'Optimized with React DnD and virtual scrolling'
+    //     }
+    //   ],
+    //   complexity: 'medium'
+    // },
     {
-      id: 4,
-      title: 'Task Management System',
-      type: 'fullstack',
-      featured: false,
-      date: '2023-09-10',
-      duration: '1 month',
-      teamSize: 1,
-      status: 'completed',
-      progress: 100,
-      shortDescription: 'Collaborative task management system with drag-and-drop interface.',
-      fullDescription: 'A collaborative task management system with drag-and-drop functionality, team collaboration features, and real-time updates.',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'Express'],
-      features: [
-        'Drag-and-drop interface',
-        'Team collaboration',
-        'Real-time updates',
-        'File attachments',
-        'Progress tracking'
-      ],
-      images: ['https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&auto=format&fit=crop'],
-      stats: {
-        stars: 25,
-        forks: 6,
-        views: 720,
-        linesOfCode: 5000,
-        commits: 82,
-        branches: 3
-      },
-      challenges: [
-        {
-          title: 'Drag-and-drop performance',
-          solution: 'Optimized with React DnD and virtual scrolling'
-        }
-      ],
-      complexity: 'medium'
-    },
-    {
-      id: 5,
+      id: 6,
       title: 'Weather Forecast App',
       type: 'mobile',
       featured: false,
@@ -691,7 +692,7 @@ The system handles complex integrations with multiple external APIs and includes
       complexity: 'low'
     },
     {
-      id: 6,
+      id: 7,
       title: 'Blog Platform API',
       type: 'backend',
       featured: false,
@@ -728,7 +729,7 @@ The system handles complex integrations with multiple external APIs and includes
       complexity: 'medium'
     },
       {
-      id: 2,
+      id: 8,
       title: 'Real-Time Chat Application',
       type: 'fullstack',
       featured: true,
