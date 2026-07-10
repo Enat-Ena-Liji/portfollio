@@ -311,7 +311,7 @@
   font-weight: 500;
 }
 
-/* Modal Styles */
+/* Modal Styles - Fixed z-index to be above header */
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -323,7 +323,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: var(--z-modal);
+  z-index: 2147483647 !important;
   padding: var(--space-md);
   overflow-y: auto;
 }
@@ -338,15 +338,21 @@
   overflow-y: auto;
   position: relative;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  z-index: 2147483647 !important;
+  isolation: isolate;
 }
 
-/* Modal Header */
+/* Modal Header - Sticky to top of modal */
 .modalHeader {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding: var(--space-xl) var(--space-xl) var(--space-md);
   border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  background: var(--bg-primary);
+  z-index: 2147483647 !important;
 }
 
 .modalTitleSection {
@@ -393,6 +399,7 @@
   justify-content: center;
   transition: all var(--transition-base);
   margin-left: var(--space-md);
+  z-index: 2147483647 !important;
 }
 
 .modalClose:hover {

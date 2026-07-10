@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FaGithub, FaExternalLinkAlt, FaStar, FaCodeBranch,
@@ -16,6 +16,38 @@ const ProjectCard = ({ project }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [activeImage, setActiveImage] = useState(0);
   const [videoPlaying, setVideoPlaying] = useState(false);
+
+  // Lock body scroll and hide header when modal is open
+  useEffect(() => {
+    if (isExpanded) {
+      document.body.style.overflow = 'hidden';
+      // Hide header when modal is open - using data attribute selector
+      const header = document.querySelector('header[data-header="true"]');
+      if (header) {
+        header.style.setProperty('display', 'none', 'important');
+        header.style.visibility = 'hidden';
+        header.style.pointerEvents = 'none';
+      }
+    } else {
+      document.body.style.overflow = 'unset';
+      // Show header when modal is closed
+      const header = document.querySelector('header[data-header="true"]');
+      if (header) {
+        header.style.display = '';
+        header.style.visibility = '';
+        header.style.pointerEvents = '';
+      }
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+      const header = document.querySelector('header[data-header="true"]');
+      if (header) {
+        header.style.display = '';
+        header.style.visibility = '';
+        header.style.pointerEvents = '';
+      }
+    };
+  }, [isExpanded]);
 
   if (!project) {
     console.error('ProjectCard: project prop is undefined');

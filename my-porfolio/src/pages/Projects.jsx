@@ -66,9 +66,9 @@ const Projects = () => {
     images: ['https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&auto=format&fit=crop'],
     video: null,
     links: {
-      github: 'https://github.com/yourusername/udas',
+      github: 'https://github.com/Enat-Ena-Liji/newselection',
       demo: 'https://udas-demo.herokuapp.com',
-      docs: 'https://github.com/yourusername/udas#readme'
+      docs: 'https://github.com/Enat-Ena-Liji/newselection#readme'
     },
     stats: {
       stars: 0,
@@ -94,49 +94,212 @@ const Projects = () => {
     ],
     complexity: 'high'
   },
-  {
-      id: 1,
-      title: 'E-Commerce Platform',
-      type: 'fullstack',
-      featured: true,
-      date: '2024-01-15',
-      duration: '3 months',
-      teamSize: 3,
-      status: 'completed',
-      progress: 100,
-      shortDescription: 'A full-featured e-commerce platform with real-time inventory management and payment integration.',
-      fullDescription: 'This project involved building a complete e-commerce solution from scratch. Features include user authentication, product catalog, shopping cart, payment processing with Stripe, order management, and admin dashboard.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Redux', 'Stripe'],
-      features: [
-        'User authentication with JWT',
-        'Real-time inventory management',
-        'Payment processing with Stripe',
-        'Admin dashboard with analytics',
-        'Responsive design for all devices'
-      ],
-      images: ['https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop'],
-      video: null,
-      links: {
-        github: 'https://github.com',
-        demo: 'https://weather-condition-one.vercel.app',
-        docs: null
+//   {
+//       id: 1,
+//       title: 'E-Commerce Platform',
+//       type: 'fullstack',
+//       featured: true,
+//       date: '2024-01-15',
+//       duration: '3 months',
+//       teamSize: 3,
+//       status: 'completed',
+//       progress: 100,
+//       shortDescription: 'A full-featured e-commerce platform with real-time inventory management and payment integration.',
+//       fullDescription: 'This project involved building a complete e-commerce solution from scratch. Features include user authentication, product catalog, shopping cart, payment processing with Stripe, order management, and admin dashboard.',
+//       technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Redux', 'Stripe'],
+//       features: [
+//         'User authentication with JWT',
+//         'Real-time inventory management',
+//         'Payment processing with Stripe',
+//         'Admin dashboard with analytics',
+//         'Responsive design for all devices'
+//       ],
+//       images: ['https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop'],
+//       video: null,
+//       links: {
+//         github: 'https://github.com',
+//         demo: 'https://weather-condition-one.vercel.app',
+//         docs: null
+//       },
+//       stats: {
+//         stars: 45,
+//         forks: 12,
+//         views: 1200,
+//         linesOfCode: 15000,
+//         commits: 156,
+//         branches: 8
+//       },
+//       challenges: [
+//         {
+//           title: 'Real-time inventory sync',
+//           solution: 'Implemented WebSocket connections and database transactions'
+//         }
+//       ],
+//       complexity: 'high'
+//  },
+{
+  "id": 10,
+  "title": "Global Banking & Transaction Settlement System",
+  "type": "distributed-systems",
+  "featured": true,
+  "date": "2024-06-15",
+  "duration": "5 weeks",
+  "teamSize": 1,
+  "status": "in-progress",
+  "progress": 75,
+  "shortDescription": "A distributed banking system with RMI remote objects, atomic RPC transactions, multi-currency support, clearing house settlement, and role-based security for 4 actors.",
+  "fullDescription": "A comprehensive distributed banking platform implementing core financial infrastructure with:\n\n• RMI-based remote Account objects with thread-safe balance operations and daily compound interest accrual\n• Atomic RPC fund transfers with SERIALIZABLE database isolation, idempotency protection, and automatic rollback\n• Multi-currency support with real-time exchange rates, 2% margin, and 5-minute rate caching\n• Fee calculation engine: $1 domestic, 2% international (min $5, max $100), waived for internal transfers\n• Clearing House batch settlement with multilateral netting: NPᵢ = Σ(PaymentsIn) - Σ(PaymentsOut)\n• Hash-chained immutable audit logs with SHA-256 integrity verification\n• Anomaly detection: $10K threshold, velocity checks, geographic analysis, device fingerprinting\n• 4-role RBAC: Customer (transfers up to $10K), Teller (KYC, freeze, $50K approval), Admin (config, reconciliation), Auditor (logs, SAR reports)\n• Nightly three-way reconciliation verifying database = RMI objects = bank reserves\n• MFA authentication with TOTP codes, JWT tokens (15min expiry), and session-based RMI binding\n\nThe system implements 25 functional requirements across 9 database tables with complete audit trails and supports 60+ actor activities through JavaFX desktop interfaces.",
+  "technologies": [
+    "Java 17",
+    "RMI (Remote Method Invocation)",
+    "RPC (Remote Procedure Call)",
+    "JavaFX 21",
+    "PostgreSQL 16",
+    "Maven Multi-Module",
+    "HikariCP",
+    "JWT",
+    "TOTP (MFA)",
+    "Docker",
+    "Redis",
+    "SLF4J/Logback"
+  ],
+  "features": [
+    "RMI remote Account objects with ReentrantReadWriteLock thread safety",
+    "Atomic fund transfers with SELECT FOR UPDATE pessimistic locking",
+    "Idempotency protection preventing double-spending (24hr key cache)",
+    "Compound interest accrual: A = P(1 + r/365)^(365t) daily at 00:00 UTC",
+    "Multi-currency conversion with real-time rates and 2% margin",
+    "Fee engine: $1 domestic, 2% international, internal transfers free",
+    "Clearing House multilateral netting: NP = ΣIn - ΣOut",
+    "Hash-chained immutable audit logs (SHA-256 blockchain-style)",
+    "Anomaly detection: threshold, velocity, geographic, time-based rules",
+    "4-role RBAC with 25-permission matrix",
+    "MFA authentication with TOTP 6-digit codes (30-second refresh)",
+    "High-value transaction approval workflow (>$50K)",
+    "Account freeze/unfreeze with audit trail and reason codes",
+    "Nightly three-way reconciliation (DB = RMI = Reserves)",
+    "Dynamic configuration hot-reload without server restart",
+    "Session-based RMI object binding with 15-minute timeout",
+    "KYC verification workflow with 5 status states",
+    "Suspicious Activity Report (SAR) generation",
+    "Real-time system health monitoring dashboard",
+    "25 functional requirements across 9 database tables",
+    "60+ actor activities mapped to RPC/RMI protocols",
+    "JavaFX desktop GUI with role-based sidebar navigation",
+    "4 Maven modules: Contracts, Persistence, Engine, Client"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop"
+  ],
+  "video": null,
+  "links": {
+    "github": "https://github.com/yourusername/global-banking-system",
+    "demo": null,
+    "docs": "https://github.com/yourusername/global-banking-system#readme"
+  },
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "views": 0,
+    "linesOfCode": 15000,
+    "commits": 0,
+    "branches": 0
+  },
+  "challenges": [
+    {
+      "title": "Atomic transaction integrity across distributed accounts",
+      "solution": "Implemented SERIALIZABLE isolation with SELECT FOR UPDATE row-level locking in PostgreSQL, wrapped in Java transaction management with automatic rollback. Combined with Redis distributed locks for cross-node operations to guarantee zero money loss or duplication."
+    },
+    {
+      "title": "Preventing double-spending from network retries",
+      "solution": "Designed idempotency management system using UUID-based keys cached for 24 hours. Duplicate requests return the original cached response without re-executing the transfer. Implemented both in-memory ConcurrentHashMap and Redis-backed cache for production readiness."
+    },
+    {
+      "title": "Thread-safe RMI remote object management",
+      "solution": "Used ReentrantReadWriteLock on all Account remote objects, allowing concurrent reads (balance checks) while serializing writes (transfers). Combined with database-level pessimistic locking to prevent race conditions across multiple server nodes."
+    },
+    {
+      "title": "Building hash-chained immutable audit logs",
+      "solution": "Implemented SHA-256 hash chaining where each audit log entry contains hash(current_data + previous_hash). This creates a blockchain-style tamper-evident audit trail. PostgreSQL triggers automatically calculate and store the hash on every INSERT."
+    },
+    {
+      "title": "Designing a clean 4-module Maven architecture",
+      "solution": "Separated into bank-shared-contracts (interfaces, DTOs, exceptions), bank-persistence-postgres (repositories, connection pooling), bank-server-engine (RMI/RPC implementations, business logic, security), and bank-client-javafx (GUI). This enforces dependency inversion and allows independent testing of each layer."
+    }
+  ],
+  "architecture": {
+    "layers": [
+      {
+        "name": "Shared Contracts Layer",
+        "description": "Interfaces (IAccountRemote), DTOs (TransactionRequest, AccountStatement), Exceptions (40 error codes), Enums (ActorRole, TransactionStatus) - No business logic, pure contracts",
+        "technology": "Java Interfaces, Serializable DTOs"
       },
-      stats: {
-        stars: 45,
-        forks: 12,
-        views: 1200,
-        linesOfCode: 15000,
-        commits: 156,
-        branches: 8
+      {
+        "name": "Persistence Layer",
+        "description": "PostgreSQL with HikariCP connection pooling (20 connections), Flyway migrations, Repository pattern with SELECT FOR UPDATE locking, hash-chained audit triggers",
+        "technology": "PostgreSQL 16, HikariCP 5.1, JDBC"
       },
-      challenges: [
-        {
-          title: 'Real-time inventory sync',
-          solution: 'Implemented WebSocket connections and database transactions'
-        }
-      ],
-      complexity: 'high'
- },
+      {
+        "name": "Business Logic Layer",
+        "description": "RMI Remote Objects (thread-safe accounts), RPC Services (atomic transfers, idempotency), Security (MFA, RBAC, JWT), Background Jobs (interest accrual, reconciliation, anomaly detection)",
+        "technology": "Java RMI, Java RPC, JWT, TOTP"
+      },
+      {
+        "name": "Presentation Layer",
+        "description": "JavaFX desktop application with FXML layouts, role-based sidebar navigation, 5 distinct dashboards (Login, Customer, Teller, Admin, Auditor), CSS styling with dark/light themes",
+        "technology": "JavaFX 21, FXML, CSS"
+      }
+    ],
+    "database": {
+      "tables": 9,
+      "tablesList": [
+        "users (authentication, profiles, KYC status)",
+        "accounts (balances, interest rates, limits, freeze status)",
+        "transactions (immutable ledger, idempotency, hash chain)",
+        "audit_logs (append-only, hash-chained, JSONB details)",
+        "sessions (JWT tokens, RMI bindings, activity tracking)",
+        "system_config (hot-reload parameters, audit trail)",
+        "reconciliation_logs (daily balance verification)",
+        "notification_queue (async email/SMS/push queue)",
+        "exchange_rates (cached currency rates, 5-min refresh)"
+      ]
+    }
+  },
+  "functionalRequirements": 25,
+  "actorActivities": 40,
+  "systemProcesses": 8,
+  "roles": [
+    {
+      "name": "Customer",
+      "activities": 12,
+      "permissions": ["View Balance", "Transfer ≤$10K", "View Statement", "Preview Interest", "Verify Recipient", "Update Profile"]
+    },
+    {
+      "name": "Bank Teller",
+      "activities": 12,
+      "permissions": ["Search Customer", "Verify KYC", "Process Cash", "Freeze/Unfreeze Account", "Approve ≤$50K", "Resolve Exceptions"]
+    },
+    {
+      "name": "System Admin",
+      "activities": 8,
+      "permissions": ["Monitor Health", "Update Config", "Manage RMI", "Run Reconciliation", "View Logs", "Manage Backups"]
+    },
+    {
+      "name": "Security Auditor",
+      "activities": 8,
+      "permissions": ["View Audit Logs", "Review Anomalies", "Verify Integrity", "Generate SAR", "Issue Reports", "Investigate Accounts"]
+    }
+  ],
+  "complexity": "high",
+  "goldenRule": "Σ(All Account Balances) + Σ(Pending Transactions) = Total Bank Reserves",
+  "keyFormulas": [
+    "Compound Interest: A = P(1 + r/365)^(365t)",
+    "Netting Position: NPᵢ = Σ(PaymentsInᵢⱼ) - Σ(PaymentsOutⱼᵢ)",
+    "Fee: International = max($5, min($100, amount × 2%))",
+    "Audit Hash: Hₙ = SHA256(Hₙ₋₁ + dataₙ)",
+    "Balance: B_available = B_current - Pending_debits"
+  ]
+},
     {
     id: 11,
     title: 'Evangadi Forum - Programming Q&A Platform',
@@ -305,43 +468,149 @@ The platform follows Stack Overflow-style conventions and provides an intuitive 
     complexity: 'high'
   },
  
+    // {
+    //   id: 3,
+    //   title: 'AI-Powered Analytics Dashboard',
+    //   type: 'frontend',
+    //   featured: false,
+    //   date: '2024-02-01',
+    //   duration: '1.5 months',
+    //   teamSize: 1,
+    //   status: 'in-progress',
+    //   progress: 75,
+    //   shortDescription: 'Dashboard for visualizing AI model predictions with interactive charts and real-time data.',
+    //   fullDescription: 'An advanced analytics dashboard built with React and TypeScript for visualizing machine learning model predictions and real-time data streams.',
+    //   technologies: ['React', 'TypeScript', 'D3.js', 'Chart.js', 'Tailwind'],
+    //   features: [
+    //     'Interactive data visualizations',
+    //     'Real-time data updates',
+    //     'Custom chart configurations',
+    //     'Export functionality',
+    //     'Responsive design'
+    //   ],
+    //   images: ['https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop'],
+    //   stats: {
+    //     stars: 18,
+    //     forks: 5,
+    //     views: 560,
+    //     linesOfCode: 6500,
+    //     commits: 67,
+    //     branches: 4
+    //   },
+    //   challenges: [
+    //     {
+    //       title: 'Real-time data synchronization',
+    //       solution: 'Implemented WebSocket connections with automatic reconnection'
+    //     }
+    //   ],
+    //   complexity: 'high'
+    // },
     {
-      id: 3,
-      title: 'AI-Powered Analytics Dashboard',
-      type: 'frontend',
-      featured: false,
-      date: '2024-02-01',
-      duration: '1.5 months',
-      teamSize: 1,
-      status: 'in-progress',
-      progress: 75,
-      shortDescription: 'Dashboard for visualizing AI model predictions with interactive charts and real-time data.',
-      fullDescription: 'An advanced analytics dashboard built with React and TypeScript for visualizing machine learning model predictions and real-time data streams.',
-      technologies: ['React', 'TypeScript', 'D3.js', 'Chart.js', 'Tailwind'],
-      features: [
-        'Interactive data visualizations',
-        'Real-time data updates',
-        'Custom chart configurations',
-        'Export functionality',
-        'Responsive design'
-      ],
-      images: ['https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop'],
-      stats: {
-        stars: 18,
-        forks: 5,
-        views: 560,
-        linesOfCode: 6500,
-        commits: 67,
-        branches: 4
-      },
-      challenges: [
-        {
-          title: 'Real-time data synchronization',
-          solution: 'Implemented WebSocket connections with automatic reconnection'
-        }
-      ],
-      complexity: 'high'
+  "id": 1,
+  "title": "AI Personal Agent - Full Stack SaaS Application",
+  "type": "fullstack",
+  "featured": true,
+  "date": "2024-01-15",
+  "duration": "6 months",
+  "teamSize": 1,
+  "status": "completed",
+  "progress": 100,
+  "shortDescription": "A comprehensive AI-powered personal assistant SaaS that connects Gmail, WhatsApp, Calendar, and Slack to provide intelligent briefings, alerts, AI email drafting, smart replies, and real-time notifications.",
+  "fullDescription": `A full-stack AI-powered personal assistant SaaS application that revolutionizes personal productivity and communication management with:
+
+    • AI-Powered Email Management: Intelligent priority inbox with Gemini AI classification, smart replies, and automated email drafting with multiple tones
+    • Multi-Platform Integration: Seamless connection to Gmail, WhatsApp, Google Calendar, and Slack with real-time synchronization
+    • Real-Time Notifications: WebSocket-based live notifications, typing indicators, and online/offline presence
+    • Advanced Analytics Dashboard: Comprehensive metrics including productivity scores, communication patterns, streaks, and AI-generated recommendations
+    • Email Templates System: AI-generated templates with variable support, categories, and usage tracking
+    • Meeting Intelligence: Auto-scheduling, AI-generated meeting agendas, and automated follow-up emails
+    • Priority Inbox: AI-powered email classification with priority and category detection (work/personal/social/promotional)
+    • Automated Daily Briefings: AI-generated summaries of emails, messages, and calendar events with actionable items
+    • Real-Time Activity Feed: Live updates of all user activities across platforms
+    • Complete Authentication: Clerk-powered authentication with JWT and role-based access control
+
+The system handles complex integrations with multiple external APIs and includes comprehensive analytics with visual dashboards and AI-powered insights.`,
+  "technologies": [
+    "Next.js 16.2.9",
+    "React 19.2.4",
+    "TypeScript",
+    "Tailwind CSS",
+    "Clerk Authentication",
+    "Convex (Backend)",
+    "Google Gemini AI",
+    "Gmail API",
+    "WhatsApp (Baileys)",
+    "Google Calendar API",
+    "Socket.IO",
+    "Slack API",
+    "Date-fns",
+    "Lucide Icons"
+  ],
+  "features": [
+    "AI-Powered Email Management with priority inbox and Gemini classification",
+    "Multi-Platform Integration (Gmail, WhatsApp, Calendar, Slack)",
+    "Real-Time Notifications with WebSocket live updates",
+    "Advanced Analytics Dashboard with productivity scores and streaks",
+    "AI-Generated Email Templates with variable support and categories",
+    "Meeting Intelligence (Auto-scheduling, agendas, follow-ups)",
+    "Priority Inbox with AI classification and category detection",
+    "Automated Daily Briefings with actionable items",
+    "Real-Time Activity Feed with live updates",
+    "Smart Email Drafting with multiple tones and AI generation",
+    "WhatsApp Integration with QR code scanning and real-time messaging",
+    "Calendar Integration with event management and smart scheduling",
+    "Email Templates System with usage tracking and favorites",
+    "Analytics Dashboard with communication patterns and insights",
+    "Complete Authentication with Clerk and JWT",
+    "Real-Time Typing Indicators and Online/Offline Presence",
+    "Advanced Security with encrypted tokens and secure OAuth",
+    "Responsive Dashboard with modern UI/UX",
+    "Dark/Light Mode Support"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop"
+  ],
+  "video": null,
+  "links": {
+    "github": "https://github.com/Enat-Ena-Liji/personal-ai-agent",
+    "demo": "https://personal-ai-agent.vercel.app",
+    "docs": "https://github.com/Enat-Ena-Liji/personal-ai-agent#readme"
+  },
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "views": 0,
+    "linesOfCode": 45000,
+    "commits": 0,
+    "branches": 0
+  },
+  "challenges": [
+    {
+      "title": "Complex Multi-Platform Integration",
+      "solution": "Implemented unified platform services with standardized interfaces for Gmail, WhatsApp, Calendar, and Slack. Used OAuth 2.0 for Google services and Baileys library for WhatsApp, with real-time synchronization and error handling."
     },
+    {
+      "title": "Real-Time Communication",
+      "solution": "Built WebSocket server using Socket.IO for real-time messaging, typing indicators, and presence detection. Implemented automatic reconnection and offline message queuing."
+    },
+    {
+      "title": "AI-Powered Email Classification",
+      "solution": "Integrated Google Gemini AI for priority and category classification with custom prompts for accurate detection of work, personal, social, and promotional emails."
+    },
+    {
+      "title": "Multi-Platform Authentication",
+      "solution": "Used Clerk for unified authentication across all platforms with OAuth providers and JWT token management for secure API access."
+    },
+    {
+      "title": "Real-Time Data Synchronization",
+      "solution": "Leveraged Convex as backend with real-time subscriptions for instant updates across all connected clients, ensuring consistent data states."
+    }
+  ],
+  "complexity": "high"
+},
     {
       id: 4,
       title: 'Task Management System',
@@ -501,6 +770,8 @@ The platform follows Stack Overflow-style conventions and provides an intuitive 
       ],
       complexity: 'medium'
     },
+
+
     // {
     //   id: 7,
     //   title: 'Portfolio Website',

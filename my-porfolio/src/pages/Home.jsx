@@ -144,7 +144,7 @@ const Home = () => {
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer">
                   <FaGithub />
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/daniel-ayen-3113643b4" target="_blank" rel="noopener noreferrer">
                   <FaLinkedin />
                 </a>
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">

@@ -132,6 +132,7 @@ const Header = () => {
         animate={{ y: 0 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}
+        data-header="true"
       >
         <div className={styles.container}>
           {/* Logo */}
@@ -148,7 +149,7 @@ const Header = () => {
               <FaCode className={styles.logoSvg} />
             </div>
             <div className={styles.logoText}>
-              <span className={styles.logoName}>&lt;DaniFolio/&gt;</span>
+              <span className={styles.logoName}><DaniFolio/></span>
               <span className={styles.logoSubtitle}>Full Stack Developer</span>
             </div>
           </motion.div>

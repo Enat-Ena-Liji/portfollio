@@ -1,11 +1,21 @@
 @import '../../styles/variables.css';
 
+/* Hide header when modal is open - using element selector for maximum compatibility */
+body.modal-open header {
+  display: none !important;
+}
+
+/* Also hide any elements with backdrop-filter that might create stacking context */
+body.modal-open [class*="header"] {
+  display: none !important;
+}
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: var(--z-header);
+  z-index: 1000;
   padding: 1.2rem 2rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background: transparent;
