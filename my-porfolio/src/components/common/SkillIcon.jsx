@@ -14,7 +14,6 @@ import styles from './SkillIcon.module.css';
 
 const SkillIcon = ({ skill, level, category, size = 'medium', interactive = true }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
   const [progress, setProgress] = useState(0);
 
   const skillCategories = {
@@ -93,10 +92,9 @@ const SkillIcon = ({ skill, level, category, size = 'medium', interactive = true
         style={{ '--skill-color': categoryInfo.color }}
         whileHover={interactive ? { scale: 1.05 } : {}}
         whileTap={interactive ? { scale: 0.95 } : {}}
-        onMouseEnter={() => interactive && setIsHovered(true)}
-        onMouseLeave={() => interactive && setIsHovered(false)}
-        onClick={() => interactive && setIsExpanded(true)}
-      >
+       onMouseEnter={() => interactive && setIsHovered(true)}
+       onMouseLeave={() => interactive && setIsHovered(false)}
+       >
         {isHovered && (
           <motion.div
             className={styles.glow}
@@ -156,124 +154,6 @@ const SkillIcon = ({ skill, level, category, size = 'medium', interactive = true
             {levelText[currentLevel]}
           </span>
         </div>
-      )}
-
-      {interactive && isExpanded && (
-        <motion.div
-          className={styles.modalOverlay}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() => setIsExpanded(false)}
-        >
-          <motion.div
-            className={styles.modal}
-            initial={{ scale: 0.8, y: 50 }}
-            animate={{ scale: 1, y: 0 }}
-            exit={{ scale: 0.8, y: 50 }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className={styles.modalClose}
-              onClick={() => setIsExpanded(false)}
-              aria-label="Close"
-            >
-              ×
-            </button>
-
-            <div className={styles.modalHeader}>
-              <div className={styles.modalIcon} style={{ color: categoryInfo.color }}>
-                {icon}
-              </div>
-              <div className={styles.modalTitle}>
-                <h3>{skill}</h3>
-                <span className={styles.modalCategory}>{category}</span>
-              </div>
-            </div>
-
-            <div className={styles.progressDetails}>
-              <div className={styles.progressInfo}>
-                <div className={styles.progressLabels}>
-                  <span className={styles.progressLevel} style={{ color: levelColors[currentLevel] }}>
-                    {levelText[currentLevel]}
-                  </span>
-                  <span className={styles.progressPercentage}>{Math.round(progress)}%</span>
-                </div>
-                <div className={styles.progressBarContainer}>
-                  <motion.div
-                    className={styles.progressBarFill}
-                    style={{ 
-                      backgroundColor: levelColors[currentLevel],
-                      width: `${progress}%`
-                    }}
-                    initial={{ width: 0 }}
-                    animate={{ width: `${progress}%` }}
-                    transition={{ duration: 1 }}
-                  />
-                </div>
-              </div>
-
-              <div className={styles.timeline}>
-                <h4>Experience Timeline</h4>
-                <div className={styles.timelineBar}>
-                  {[0, 25, 50, 75, 100].map((point) => (
-                    <div key={point} className={styles.timelinePoint}>
-                      <div 
-                        className={`${styles.timelineMarker} ${progress >= point ? styles.active : ''}`}
-                        style={{ backgroundColor: progress >= point ? levelColors[currentLevel] : '#ccc' }}
-                      />
-                      <span className={styles.timelineLabel}>{point}%</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className={styles.relatedProjects}>
-                <h4>Related Projects</h4>
-                <div className={styles.projectsGrid}>
-                  {['Project A', 'Project B', 'Project C'].map((project) => (
-                    <div key={project} className={styles.projectChip}>
-                      {project}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className={styles.description}>
-                <h4>About This Skill</h4>
-                <p>
-                  {skill} is a {category} technology that I have been working with for 
-                  over {Math.round(progress / 20)} years. I have used it in various projects
-                  including web applications, APIs, and database management systems.
-                </p>
-              </div>
-
-              <div className={styles.metrics}>
-                <div className={styles.metric}>
-                  <div className={styles.metricValue}>{Math.round(progress / 10)}</div>
-                  <div className={styles.metricLabel}>Projects</div>
-                </div>
-                <div className={styles.metric}>
-                  <div className={styles.metricValue}>{Math.round(progress * 10)}</div>
-                  <div className={styles.metricLabel}>Hours</div>
-                </div>
-                <div className={styles.metric}>
-                  <div className={styles.metricValue}>{Math.round(progress / 5)}</div>
-                  <div className={styles.metricLabel}>Years</div>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.actions}>
-              <button className={`${styles.actionBtn} ${styles.viewProjects}`}>
-                View Projects
-              </button>
-              <button className={`${styles.actionBtn} ${styles.learnMore}`}>
-                Learn More
-              </button>
-            </div>
-          </motion.div>
-        </motion.div>
       )}
     </div>
   );
