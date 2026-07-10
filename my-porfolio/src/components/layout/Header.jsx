@@ -5,7 +5,7 @@ import {
   FaHome, FaUser, FaProjectDiagram, FaCode, 
   FaEnvelope, FaBars, FaTimes, FaMoon, FaSun,
   FaGithub, FaLinkedin, FaFileDownload, FaArrowUp,
-  FaFilePdf, FaFileWord, FaExternalLinkAlt, FaCheck, FaTimes as FaTimesIcon
+  FaFilePdf, FaFileWord, FaExternalLinkAlt, FaCheck, FaTimes as FaTimesIcon, FaEye
 } from 'react-icons/fa';
 import { SiLeetcode, SiHackerrank, SiGmail } from 'react-icons/si';
 import styles from './Header.module.css';
@@ -95,6 +95,21 @@ const Header = () => {
       message: `Resume (${format.toUpperCase()}) downloading...`
     });
     setTimeout(() => setNotification(null), 3000);
+    setShowResumeDropdown(false);
+    
+    // Trigger actual download
+    if (format === 'pdf') {
+      const link = document.createElement('a');
+      link.href = '/Resume.pdf';
+      link.download = 'Daniel_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+  
+  const viewResume = () => {
+    window.open('/Resume.pdf', '_blank');
     setShowResumeDropdown(false);
   };
 
@@ -205,6 +220,13 @@ const Header = () => {
                     exit={{ opacity: 0, y: 10 }}
                     className={styles.resumeDropdown}
                   >
+                    <button 
+                      onClick={viewResume}
+                      className={styles.dropdownItem}
+                    >
+                      <span className={styles.itemIcon}><FaEye /></span>
+                      <span className={styles.itemTitle}>View Resume</span>
+                    </button>
                     {resumeVersions.map((version) => (
                       <button 
                         key={version.format}

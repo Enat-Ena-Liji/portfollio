@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   FaUser, FaUniversity, FaLaptopCode, FaRocket,
-  FaLightbulb
+  FaLightbulb, FaFileDownload, FaEye
 } from 'react-icons/fa';
 import ScrollNavigationIndicators from '../components/common/ScrollNavigationIndicators';
 import styles from './About.module.css';
@@ -145,6 +145,50 @@ const About = () => {
                 <h4>Continuous Learning</h4>
                 <p>Stay updated with emerging technologies</p>
               </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Resume Section */}
+      <section className={styles.resumeSection}>
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className={styles.resumeContent}
+          >
+            <div className={styles.resumeIcon}>
+              <FaFileDownload />
+            </div>
+            <h2 className={styles.resumeTitle}>Download My Resume</h2>
+            <p className={styles.resumeText}>
+              Get a detailed overview of my experience, skills, and achievements.
+              Available in PDF format for easy viewing and printing.
+            </p>
+            <div className={styles.resumeActions}>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="/Resume.pdf"
+                download="Daniel_Resume.pdf"
+                className={styles.resumeDownloadBtn}
+              >
+                <FaFileDownload />
+                <span>Download PDF</span>
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="/Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.resumeViewBtn}
+              >
+                <FaEye />
+                <span>View Online</span>
+              </motion.a>
             </div>
           </motion.div>
         </div>

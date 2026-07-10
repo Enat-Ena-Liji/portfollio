@@ -259,6 +259,88 @@
   font-size: 0.95rem;
 }
 
+/* Resume Section */
+.resumeSection {
+  padding: var(--space-3xl) 0;
+  background: var(--bg-secondary);
+}
+
+.resumeContent {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.resumeIcon {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-gradient);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--bg-primary);
+  margin: 0 auto var(--space-xl);
+}
+
+.resumeTitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.resumeText {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-xl);
+}
+
+.resumeActions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.resumeDownloadBtn,
+.resumeViewBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  border: none;
+}
+
+.resumeDownloadBtn {
+  background: var(--primary-gradient);
+  color: var(--bg-primary);
+}
+
+.resumeDownloadBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--primary-glow);
+}
+
+.resumeViewBtn {
+  background: var(--bg-card);
+  color: var(--primary);
+  border: 1px solid var(--border-color);
+}
+
+.resumeViewBtn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+}
+
 /* Responsive */
 @media (max-width: 992px) {
   .grid {

@@ -732,7 +732,7 @@ The platform follows Stack Overflow-style conventions and provides an intuitive 
           </motion.div>
         </div>
       </section>
-
+ 
       {/* Projects Display */}
       <section className={styles.display}>
         <div className="container">
