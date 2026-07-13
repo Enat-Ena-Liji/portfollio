@@ -56,11 +56,11 @@ const Home = () => {
                 </p>
                 <div className={styles.heroStats}>
                   <div className={styles.stat}>
-                    <span className={styles.statNumber}>10+</span>
+                    <span className={styles.statNumber}>20+</span>
                     <span className={styles.statLabel}>Technologies</span>
                   </div>
                   <div className={styles.stat}>
-                    <span className={styles.statNumber}>5+</span>
+                    <span className={styles.statNumber}>15+</span>
                     <span className={styles.statLabel}>Projects</span>
                   </div>
                   <div className={styles.stat}>
@@ -118,7 +118,7 @@ const Home = () => {
                         className={`${styles.badge} ${styles.mongodb}`}
                         animate={{ y: [-10, 10, -10] }}
                         transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                      >
+                      > 
                         <SiMongodb />
                       </motion.div>
                       <motion.div
@@ -141,13 +141,13 @@ const Home = () => {
               className={styles.heroFooter}
             >
               <div className={styles.socialLinks}>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/Enat-Ena-Liji" target="_blank" rel="noopener noreferrer">
                   <FaGithub />
                 </a>
                 <a href="https://www.linkedin.com/in/daniel-ayen-3113643b4" target="_blank" rel="noopener noreferrer">
                   <FaLinkedin />
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://x.com/DanielAyenm3" target="_blank" rel="noopener noreferrer">
                   <FaTwitter />
                 </a>
               </div>

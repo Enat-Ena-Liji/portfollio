@@ -7,7 +7,7 @@ import {
   FaDatabase,
   FaMobileAlt,
   FaCloud,
-  FaToolbox,
+  FaToolbox, 
   FaLayerGroup,
   FaProjectDiagram,
   FaUsers,
@@ -51,22 +51,22 @@ const Skills = () => {
 
   const allSkills = useMemo(() => [
     // Frontend
-    { name: 'React', category: 'frontend', proficiency: 95, years: 3, projects: 15, icon: <SiReact />, color: '#61DAFB', description: 'Building dynamic user interfaces with React hooks, context API, and modern patterns.' },
-    { name: 'Next.js', category: 'frontend', proficiency: 85, years: 2, projects: 2, icon: <SiNextdotjs />, color: '#000000', description: 'Server-side rendering and static site generation for React applications.' },
-    { name: 'TypeScript', category: 'frontend', proficiency: 90, years: 2, projects: 2, icon: <SiTypescript />, color: '#3178C6', description: 'Type-safe JavaScript development for scalable applications.' },
-    { name: 'JavaScript', category: 'frontend', proficiency: 95, years: 4, projects: 5, icon: <FaCode />, color: '#F7DF1E', description: 'Expert in ES6+ features, asynchronous programming, and modern JavaScript patterns.' },
+    { name: 'React', category: 'frontend', proficiency: 95, years: 3, projects: 10, icon: <SiReact />, color: '#61DAFB', description: 'Building dynamic user interfaces with React hooks, context API, and modern patterns.' },
+    { name: 'Next.js', category: 'frontend', proficiency: 85, years: 2, projects: 4, icon: <SiNextdotjs />, color: '#000000', description: 'Server-side rendering and static site generation for React applications.' },
+    { name: 'TypeScript', category: 'frontend', proficiency: 90, years: 2, projects: 3, icon: <SiTypescript />, color: '#3178C6', description: 'Type-safe JavaScript development for scalable applications.' },
+    { name: 'JavaScript', category: 'frontend', proficiency: 95, years: 4, projects: 10, icon: <FaCode />, color: '#F7DF1E', description: 'Expert in ES6+ features, asynchronous programming, and modern JavaScript patterns.' },
     { name: 'HTML/CSS', category: 'frontend', proficiency: 98, years: 5, projects: 10, icon: <FaLayerGroup />, color: '#E34F26', description: 'Semantic HTML5, advanced CSS3, Flexbox, Grid, and responsive design.' },
-    { name: 'Tailwind CSS', category: 'frontend', proficiency: 88, years: 2, projects: 10, icon: <SiTailwindcss />, color: '#38B2AC', description: 'Utility-first CSS framework for rapid UI development.' },
+    { name: 'Tailwind CSS', category: 'frontend', proficiency: 88, years: 2, projects: 8, icon: <SiTailwindcss />, color: '#38B2AC', description: 'Utility-first CSS framework for rapid UI development.' },
     // { name: 'Redux', category: 'frontend', proficiency: 85, years: 2, projects: 2, icon: <SiRedux />, color: '#764ABC', description: 'State management for complex React applications.' },
     
     // Backend
     { name: 'Node.js', category: 'backend', proficiency: 92, years: 3, projects: 8, icon: <SiNodedotjs />, color: '#339933', description: 'Building scalable server-side applications and APIs.' },
-    { name: 'Express', category: 'backend', proficiency: 90, years: 3, projects: 5, icon: <SiExpress />, color: '#000000', description: 'Minimalist web framework for Node.js applications.' },
+    { name: 'Express', category: 'backend', proficiency: 90, years: 3, projects: 12, icon: <SiExpress />, color: '#000000', description: 'Minimalist web framework for Node.js applications.' },
     { name: 'Python', category: 'backend', proficiency: 80, years: 2, projects: 1, icon: <SiPython />, color: '#3776AB', description: 'Backend development, scripting, and data analysis.' },
-    { name: 'Java', category: 'backend', proficiency: 75, years: 3, projects: 8, icon: <FaJava />, color: '#007396', description: 'Object-oriented programming and enterprise applications.' },
+    { name: 'Java', category: 'backend', proficiency: 75, years: 3, projects: 5, icon: <FaJava />, color: '#007396', description: 'Object-oriented programming and enterprise applications.' },
     { name: 'C++', category: 'backend', proficiency: 70, years: 2, projects: 1, icon: <SiCplusplus />, color: '#00599C', description: 'System programming and performance-critical applications.' },
     
-    { name: 'Java', category: 'mobile', proficiency: 75, years: 3, projects: 8, icon: <FaJava />, color: '#007396', description: 'Object-oriented programming and enterprise applications.' },
+    // { name: 'Java', category: 'mobile', proficiency: 75, years: 3, projects: 8, icon: <FaJava />, color: '#007396', description: 'Object-oriented programming and enterprise applications.' },
 
     // Database
     { name: 'MySQL', category: 'database', proficiency: 88, years: 3, projects: 12, icon: <SiMysql />, color: '#4479A1', description: 'Relational database design, optimization, and administration.' },
@@ -75,7 +75,7 @@ const Skills = () => {
     
     // DevOps & Tools
     { name: 'Docker', category: 'devops', proficiency: 78, years: 1, projects: 2, icon: <SiDocker />, color: '#2496ED', description: 'Containerization and deployment automation.' },
-    { name: 'Git', category: 'tools', proficiency: 95, years: 4, projects: 30, icon: <SiGit />, color: '#F05032', description: 'Version control, branching strategies, and collaboration.' },
+    { name: 'Git', category: 'tools', proficiency: 95, years: 2, projects: 20, icon: <SiGit />, color: '#F05032', description: 'Version control, branching strategies, and collaboration.' },
     { name: 'Jira', category: 'tools', proficiency: 85, years: 2, projects: 15, icon: <SiJira />, color: '#0052CC', description: 'Project management and agile development workflows.' },
     
     // Design
