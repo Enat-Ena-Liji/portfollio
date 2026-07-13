@@ -6,7 +6,7 @@ import {
 } from 'react-icons/fa';
 import ScrollNavigationIndicators from '../components/common/ScrollNavigationIndicators';
 import styles from './About.module.css';
-import profilePic from '../assets/images/8mg/about-pro.png';
+import profilePic from '../assets/Images/8mg/about-pro.png';
 
 const About = () => {
   return ( 
