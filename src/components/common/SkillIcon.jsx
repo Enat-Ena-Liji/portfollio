@@ -9,7 +9,7 @@ import {
   SiCplusplus, SiTypescript, 
   SiMysql, SiPostgresql, SiMongodb, SiDocker,
   SiGit, SiJira, SiFigma
-} from 'react-icons/si';
+} from 'react-icons/si'; 
 import styles from './SkillIcon.module.css';
 
 const SkillIcon = ({ skill, level, category, size = 'medium', interactive = true }) => {
